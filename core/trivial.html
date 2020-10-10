@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://s1.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+  </style>
+</head>
+
+<body>
+  <iframe src="https://en.toolinbox.net"></iframe>
+  <script>
+    // jq is now an alias to the jQuery function, and $ is not available.
+    // const jq = $.noConflict()
+
+    // Run once the page Document Object Model (DOM) is ready for JavaScript code to execute. 
+    $(document).ready(() => {
+      console.log('document is ready.')
+    })
+
+    // Run once the entire page (images or iframes), not just the DOM, is ready.
+    $(window).on('load', function() {
+      console.log('window is ready.')
+    })
+    window.onload = function() {
+      console.log('window is ready2.')
+    }
+  </script>
+</body>
+</html>
