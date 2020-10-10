@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://s1.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <img src="https://ps.toolinbox.net/jfyjb.png" style="width: 100px; height: 100px;" />
+  <button>Change img src</button>
+
+  <script>
+    $(document).ready(function() {
+      $('button').click(function() {
+        let src = $('img').attr('src')
+        console.log('Original img src:', src)
+
+        src = 'https://ps.toolinbox.net/ro6or.png'
+        console.log('Change img src to:', src)
+        $('img').attr('src', src)
+        // $('img').attr({ src }) // Or use object
+      })
+    })
+  </script>
+</body>
+</html>
