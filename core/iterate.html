@@ -14,7 +14,7 @@
     $(document).ready(() => {
       $('button').click(function(event) {
         $('h1').each(function(i, el) {
-          // console.log(this.innerText) // this is DOM elment.
+          // console.log(this.innerText) // this is DOM element.
           console.log(i, $(el).text())
         })
         const arr = $('h1').map(function(i, el) {

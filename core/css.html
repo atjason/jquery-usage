@@ -15,18 +15,18 @@
 
   <script>
     $(document).ready(function() {
-      $('h1').css('font-size') // '19px'
-      $('h1').css('fontSize') // '19px'
+      const h1 = $('h1')
+      h1.css('font-size') // '19px'
+      h1.css('fontSize') // '19px'
 
       // NOTE: It's possible but bad to directly modify style via css.
-      $('h1').css('fontSize', '20px') // set font-size to 20px.
-      $('h1').css({
+      h1.css('fontSize', '20px') // set font-size to 20px.
+      h1.css({
         fontSize: '20px',
         color: 'red',
       })
 
-      // Instead, it's better to use modify style via css class.
-      const h1 = $('h1')
+      // Instead, it's better to modify style via css class.
       h1.addClass('bold')
       h1.removeClass('bold')
       h1.toggleClass('bold')
