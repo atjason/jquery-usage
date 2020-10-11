@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://s1.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    .bold {
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 style="font-size: 19px;">h1</h1>
+
+  <script>
+    $(document).ready(function() {
+      $('h1').css('font-size') // '19px'
+      $('h1').css('fontSize') // '19px'
+
+      // NOTE: It's possible but bad to directly modify style via css.
+      $('h1').css('fontSize', '20px') // set font-size to 20px.
+      $('h1').css({
+        fontSize: '20px',
+        color: 'red',
+      })
+
+      // Instead, it's better to use modify style via css class.
+      const h1 = $('h1')
+      h1.addClass('bold')
+      h1.removeClass('bold')
+      h1.toggleClass('bold')
+      if (h1.hasClass('bold')) {}
+    })
+  </script>
+</body>
+</html>
