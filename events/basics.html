@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://s1.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <a href="https://learn.jquery.com/events/event-basics/">jQuery Event Basics</a>
+
+  <h2>Convenience methods</h2>
+  <ul>
+    <li><code>.click()</code></li>
+    <li><code>.focus()</code></li>
+    <li><code>.blur()</code></li>
+    <li><code>.change()</code></li>
+    <li><code>.etc</code></li>
+  </ul>
+
+  <h2>Event object</h2>
+
+  <h3>data</h3>
+  <p><code>$('input').on('change', obj, function(){})</code></p>
+  <p>The `obj` here is the data that could be modified before or after the event.</p>
+
+  <h3>other</h3>
+  <p><code>preventDefault()</code>Prevent the default action of the event (e.g. following a link).</p>
+  <p><code>stopPropagation()</code>Stop the event from bubbling up to other elements.</p>
+  <p>`this` in event handle function is DOM element, could use $(this) to convert to jquery object.</p>
+
+  <h2>Multiple Event Responses</h2>
+
+  <p><code>$('input').on('click change', function(){})</code></p>
+  <p><code>$('input').on({ 
+    'click': function(){}, 
+    'change': function(){}
+  )</code></p>
+
+  <h2>Tearing Down Event Listeners</h2>
+
+  <p><code>$('input').off('click')</code></p>
+  <p><code>$('input').off('click', oneOfAllTheEventHandlers)</code></p>
+
+  <h2>Events to Run Only Once</h2>
+
+  <p><code>$('input').one('click', function(){})</code></p>
+  <p>Note: it's `one` but not `on`.</p>
+
+  <button id="btn">Test</button>
+
+  <script>
+    $(document).ready(function() {
+      const data = {}
+      // bind 2 functions for click event.
+      $('button#btn').click(function() {
+        console.log('button clicked')
+      })
+      $('button#btn').on('click', data, function(event) {
+        console.log(event)
+        console.log(event.data.name) // Tom
+        data.name = 'Jim' // When clicks next time, the name will be 'Jim'.
+      })
+
+      // Note: data is an object, its content could be modified before or after click
+      data.name = 'Tom'
+    })
+  </script>
+</body>
+</html>
