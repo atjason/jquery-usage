@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+</head>
+
+<body>
+  <p><a href="https://learn.jquery.com/plugins/basic-plugin-creation/">How to Create a Basic Plugin</a></p>
+  
+  <a href="/index.html">Index</a>
+  <button id="testBtn">Test</button>
+
+  <script>
+    (function($) {
+      $.fn.showLinkLocation = function() {
+        return this.filter('a').append(function() {
+          return ' (' + this.href + ')'
+        })
+      }
+    }(jQuery));
+
+    $(document).ready(function() {
+      $('#testBtn').click(function() {
+        $('a').showLinkLocation()
+      })
+    })
+  </script>
+</body>
+</html>
