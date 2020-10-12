@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://s1.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <p>Binding events to elements that don't exist yet. This is called event delegation.</p>
+  <ul id="testUl">
+
+  </ul>
+  <button id="testBtn">Add li</button>
+
+  <script>
+    $(document).ready(function() {
+      $('ul#testUl').on('click', 'li', function() {
+        const li = $(this)
+        console.log('id of clicked li:', li.attr('id')) 
+        console.log('Time of clicked li:', li.text()) 
+      })
+
+      $('button#testBtn').on('click', function() {
+        $('ul#testUl').append(`<li id="${Date.now()}">${(new Date()).toLocaleTimeString()}</li>`)
+      })
+    })
+  </script>
+</body>
+</html>
