@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+</head>
+
+<body>
+  <p id="p1">p</p>
+
+  <script>
+    (function($) {
+      $.fn.doOnce = function(func) {
+        this.length && func.apply(this)
+        return this
+      }
+    }(jQuery));
+
+    $(document).ready(function() {
+      $('#p1').doOnce(function() {
+        $(this).css({ color: 'red' })
+      })
+      $('#p2').doOnce(function() {
+        // Do nothing as `this` is empty.
+        $(this).css({ color: 'blue' })
+      })
+    })
+  </script>
+</body>
+</html>
