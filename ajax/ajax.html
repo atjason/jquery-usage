@@ -6,11 +6,24 @@
 </head>
 
 <body>
+  <p>
+    <a href="https://learn.jquery.com/ajax/jquery-ajax-methods/">jQuery’s Ajax-Related Methods</a>
+  </p>
+
   <button id="getBtn">Get</button>
-  <p id="result"></p>
+  <p id="loading">Loading…</p>
 
   <script>
     $(document).ready(function() {
+      // Note: it's very good opportunity to show and hide loading indicator.
+      $(document).ajaxStart(function(){
+        $("#loading").show();
+        console.log('ajaxStart')
+      }).ajaxComplete(function(){
+        $("#loading").hide();
+        console.log('ajaxComplete')
+      });
+
       $('#getBtn').click(function() {
         $.ajax({
           url: 'https://httpbin.org/get',
@@ -18,11 +31,12 @@
           data: {
             name: 'Tom',
             age: 3,
-          }
+          },
+          global: true, // If set as `false`, will not trigger ajax global events like ajaxStart.
         }).done(function(result) {
           console.log(result)
-        }).fail(function(xhr, statusText) {
-          console.error(statusText)
+        }).fail(function(xhr) {
+          console.error(xhr.status, xhr.statusText)
         })
       })
     })
