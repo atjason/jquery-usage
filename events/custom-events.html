@@ -35,7 +35,7 @@
 
   <script>
     $(document).ready(function() {
-      $('div.room').on('light:on', 'div.light', function() {
+      $('.room').on('light:on', 'div.light', function() {
         $(this).removeClass('off').addClass('on')
 
       }).on('light:off', 'div.light', function() {
@@ -50,14 +50,14 @@
         }
       })
 
-      $('div.room').on('click', 'button.switch', function() {
-        const room = $(this).closest('div.room')
+      $('.room').on('click', 'button.switch', function() {
+        const room = $(this).closest('.room')
         const lights = room.find('div.light')
         lights.trigger('light:toggle')
       })
 
-      $('div.room').on('click', 'button.master-switch', function() {
-        const room = $(this).closest('div.room')
+      $('.room').on('click', 'button.master-switch', function() {
+        const room = $(this).closest('.room')
         const lights = room.find('div.light')
         // Check if any lightbulbs are on
         if (lights.is('.on')) {

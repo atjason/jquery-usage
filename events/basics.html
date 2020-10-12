@@ -56,13 +56,14 @@
         console.log('button clicked')
       })
       $('button#btn').on('click', data, function(event) {
-        console.log(event)
         console.log(event.data.name) // Tom
-        data.name = 'Jim' // When clicks next time, the name will be 'Jim'.
       })
 
       // Note: data is an object, its content could be modified before or after click
       data.name = 'Tom'
+      setTimeout(() => {
+        data.name = 'Jim'
+      }, 5000) // When clicks next time, the name will be 'Jim'.
     })
   </script>
 </body>
