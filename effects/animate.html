@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://s1.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    .rect {
+      width: 100px;
+      height: 100px;
+      position: relative;
+      top: 50px;
+      left: 50px;
+      background-color: cyan;
+    }
+  </style>
+</head>
+
+<body>
+  <button>Move</button>
+  <div class="rect"></div>
+
+  <script>
+    $(document).ready(function() {
+      $('button').click(function() {
+        const div = $('.rect')
+        div.animate({
+            left: ['+=50px', 'swing'],
+            // opacity: '-=0.1',
+            opacity: ['-=0.1', 'linear'],
+          },
+          300, // duration
+          function() { // callback after animated.
+            console.log('animation done.')
+          }
+        )
+      })
+    })
+  </script>
+</body>
+</html>
