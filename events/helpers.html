@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://s1.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    .rect {
+      width: 200px; 
+      height: 200px;
+    }
+    .blue {
+      background-color: blue;
+    }
+    .red {
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="testDiv" class="rect blue"></div>
+  <div id="testDiv2" class="rect blue"></div>
+
+  <script>
+    $(document).ready(function() {
+      $('div#testDiv').hover(function() { // handler for both `mouseenter` and `mouseleave`.
+        $(this).toggleClass('red')
+      })
+
+      $('div#testDiv2').hover(
+        function() { // handler for `mouseenter`
+          $(this).addClass('red')
+        },
+        function() { // handler for `mouseleave`
+          $(this).removeClass('red')
+        },
+      )
+    })
+  </script>
+</body>
+</html>
