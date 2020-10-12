@@ -29,6 +29,17 @@
   </div>
 
   <script>
+    function selectedMenuItem(index, selectedMenuItem) {
+      const menuItems = $('.menu').find('.menu-item')
+      menuItems.each(function(i, el) {
+        if (i === index || el === selectedMenuItem) {
+          $(el).trigger('menu:highlighed')
+        } else {
+          $(el).trigger('menu:normal')
+        }
+      })
+    }
+
     $(document).ready(function() {
       $('.menu').on('menu:highlighed', '.menu-item', function() {
         $(this).removeClass('normal').addClass('highlighted')
@@ -36,27 +47,13 @@
       }).on('menu:normal', '.menu-item', function() {
         $(this).removeClass('highlighted').addClass('normal')
 
-      // }).on('menu:toggle', '.menu-item', function() {
-      //   const light = $(this)
-      //   if (light.hasClass('highlighted')) {
-      //     light.trigger('menu:normal')
-      //   } else {
-      //     light.trigger('menu:highlighed')
-      //   }
       })
 
       $('.menu').on('click', '.menu-item', function() {
-        const room = $(this).closest('.menu')
-        const menuItems = room.find('.menu-item')
-        const selectedMenuItem = this
-        menuItems.each(function(i, el) {
-          if (el === selectedMenuItem) {
-            $(el).trigger('menu:highlighed')
-          } else {
-            $(el).trigger('menu:normal')
-          }
-        })
+        selectedMenuItem(undefined, this)
       })
+
+      selectedMenuItem(1)
     })
   </script>
 </body>
