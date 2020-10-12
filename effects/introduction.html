@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://s1.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    .rect {
+      width: 100px;
+      height: 100px;
+      background-color: lightcyan;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Basic Operation</h2>
+  <div class="rect"></div>
+  <div>
+    <button id="showBtn">Show</button>
+    <button id="hideBtn">Hide</button>
+    <button id="toggleShowBtn">Toggle</button>
+  </div>
+  <div>
+    <button id="slideUpBtn">Slide Up</button>
+    <button id="slideDownBtn">Slide Down</button>
+    <button id="toggleSlideBtn">Toggle</button>
+  </div>
+  <div>
+    <button id="fadeInBtn">Fade In</button>
+    <button id="fadeOutBtn">Fade Out</button>
+    <button id="toggleFadeBtn">Toggle</button>
+  </div>
+
+  <h2>Other</h2>
+  <h3>delay</h3>
+  <p id="delayP">Click this p will hide and show again.</p>
+
+  <script>
+    $(document).ready(function() {
+      const div = $('.rect')
+      $('#showBtn').click(function() {
+        div.show()
+      })
+      $('#hideBtn').click(function() {
+        div.hide()
+      })
+      $('#toggleShowBtn').click(function() {
+        div.toggle()
+        // $('.rect:hidden').show()
+        // $('.rect:visible').hide()
+      })
+
+      $('#slideUpBtn').click(function() {
+        div.slideUp()
+      })
+      $('#slideDownBtn').click(function() {
+        div.slideDown()
+      })
+      $('#toggleSlideBtn').click(function() {
+        div.slideToggle()
+      })
+
+      $('#fadeInBtn').click(function() {
+        div.fadeIn('fast')
+      })
+      $('#fadeOutBtn').click(function() {
+        div.fadeOut('slow')
+      })
+      $('#toggleFadeBtn').click(function() {
+        div.fadeToggle()
+      })
+
+      $('#delayP').click(function() {
+        const p = $(this)
+        // NOTE: Should special the time but not use default 'normal'.
+        p.hide('fast', function() {
+          p.text('Now the p show again.')
+        }).delay(1500).show(300)
+      })
+
+    })
+  </script>
+</body>
+</html>
