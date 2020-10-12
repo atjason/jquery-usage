@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/axios/0.20.0/axios.min.js"></script>
+</head>
+
+<body>
+  <button id="getBtn">Get</button>
+
+  <script>
+    $(document).ready(function() {
+      $('#getBtn').click(async function() {
+        const options = {
+          url: 'https://httpbin.org/get',
+          params: {
+            name: 'Tom',
+            age: 3,
+          },
+        }
+        try {
+          const result = await axios(options)
+          console.log(result.data)
+        } catch(e) {
+          console.error(e.message || e)
+        }
+      })
+    })
+  </script>
+</body>
+</html>
