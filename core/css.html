@@ -30,7 +30,12 @@
       h1.addClass('bold')
       h1.removeClass('bold')
       h1.toggleClass('bold')
-      if (h1.hasClass('bold')) {}
+      if (h1.hasClass('bold')) {
+        console.log('h1 is bold.')
+      }
+      if (h1.is('.bold')) {
+        console.log('h1 is bold.')
+      }
     })
   </script>
 </body>

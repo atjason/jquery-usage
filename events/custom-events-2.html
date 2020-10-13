@@ -29,7 +29,7 @@
   </div>
 
   <script>
-    function selectedMenuItem(index, selectedMenuItem) {
+    function selectMenuItem(index, selectedMenuItem) {
       const menuItems = $('.menu').find('.menu-item')
       menuItems.each(function(i, el) {
         if (i === index || el === selectedMenuItem) {
@@ -50,10 +50,10 @@
       })
 
       $('.menu').on('click', '.menu-item', function() {
-        selectedMenuItem(undefined, this)
+        selectMenuItem(undefined, this)
       })
 
-      selectedMenuItem(1)
+      selectMenuItem(1)
     })
   </script>
 </body>

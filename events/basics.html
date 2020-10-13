@@ -52,10 +52,10 @@
     $(document).ready(function() {
       const data = {}
       // bind 2 functions for click event.
-      $('button#btn').click(function() {
+      $('#btn').click(function() {
         console.log('button clicked')
       })
-      $('button#btn').on('click', data, function(event) {
+      $('#btn').on('click', data, function(event) {
         console.log(event.data.name) // Tom
       })
 
