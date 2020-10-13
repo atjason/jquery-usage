@@ -15,14 +15,14 @@
 
   <script>
     $(document).ready(function() {
-      $('ul#testUl').on('click', 'li', function() {
+      $('#testUl').on('click', 'li', function() {
         const li = $(this)
         console.log('id of clicked li:', li.attr('id')) 
         console.log('Time of clicked li:', li.text()) 
       })
 
-      $('button#testBtn').on('click', function() {
-        $('ul#testUl').append(`<li id="${Date.now()}">${(new Date()).toLocaleTimeString()}</li>`)
+      $('#testBtn').on('click', function() {
+        $('#testUl').append(`<li id="${Date.now()}">${(new Date()).toLocaleTimeString()}</li>`)
       })
     })
   </script>
